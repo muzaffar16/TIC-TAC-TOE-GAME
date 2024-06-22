@@ -19,6 +19,7 @@ let val = document.querySelectorAll(".box")
 function pauseGame() {
     val.forEach((e) => {
         e.style.pointerEvents = "none"; // Disable further clicks
+        
     });
 }
 
@@ -35,6 +36,7 @@ function showWinner(winner){
  let i=0
 function checkWin(){
     i++
+    console.log(i)
     for(let x of winningPos){ 
         let val1 = val[x[0]].innerHTML
         let val2 = val[x[1]].innerHTML
@@ -54,6 +56,7 @@ function checkWin(){
             <div class ="display"> <b> MATCH DRAW </b>
         </div>`
         )
+        
     
   }
 }
@@ -68,6 +71,7 @@ function updateTurnDisplay() {
         // BD.style.backgroundColor = "blue";
         playerTurnDisplay.innerHTML = "<b>Player: X Turn</b>";
     }
+    
 }
 
 val.forEach((e) => {
@@ -98,7 +102,11 @@ function resetGame() {
         if (winnerDisplay) {
             winnerDisplay.remove();
         }
-
+      i=0
+      val.forEach((e) => {
+        e.style.pointerEvents = "auto"; //enable further clicks
+        
+    });
         updateTurnDisplay();
 }
 
